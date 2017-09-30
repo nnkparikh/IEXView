@@ -12,10 +12,8 @@ body, html {
 }
 
 body  {
-	background-color: #262626;
+	background-color: #222222;
 	margin: 0 auto;
-	/* #1E1E1E; with box shadow */
-	/* #272727; #2E2E2E; */
 	font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -37,15 +35,16 @@ body  {
 
 .side-bar {
 	background-color: #222222;
+	border-right: 2px solid #262626;
 	font-size: 14px;
-	height: 100%;
 	width: 150px;
+	align-items: stretch;
 }
 
 .side-bar ul {
 	list-style: none;
-
 }
+
 .side-bar ul li {
 	color: #CCCCCC;
 	padding: 3px;
@@ -56,14 +55,14 @@ body  {
 .side-bar ul li:hover {
 	color: #4D99BF;
 	cursor: pointer;
-	background: #262626;
+	background-color: #262626;
+	border-left: 2px solid #4D99BF;
 }
 
 .top-bar {
 	background-color: #262626;
 	position: relative;
 	box-shadow: 0 0 10px rgba(0,0,0, 0.3);
-/*	border-bottom: 1px solid #1e1e1e;*/
 	font-size: 12px;
 	display: flex;
 	padding: 5px 5px;
@@ -79,4 +78,9 @@ body  {
 
 .app-name .an2 {
 	color: #FF7977;
+}
+
+.content {
+	display: flex;
+	height: 100%;
 }
