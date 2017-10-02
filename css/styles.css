@@ -24,7 +24,8 @@ body  {
 }
 
 .links a {
-	color: #DBCFBF;
+	color: #ABBBBB;
+	/*color: #DBCFBF;*/
 	text-decoration: none;
 	margin-right: 0.5em;
 }
@@ -45,7 +46,7 @@ body  {
 }
 
 .side-bar ul li {
-	color: #CCCCCC;
+	color: #AAAAAA;
 	padding: 3px;
 	padding-left: 5px;
 	font-size: 12px;
@@ -67,16 +68,23 @@ body  {
 	padding: 5px 5px;
 }
 
-.app-name {
-	color: #7fcaac;
-}
-
 .app-name .an1 {
-	color: #9EDE5E;
+	color: #558f38;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 10px solid #558f38;
+	display: inline-block;
 }
 
 .app-name .an2 {
-	color: #FF7977;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 10px solid #FF7977;
+	display: inline-block;
 }
 
 .content {
@@ -90,12 +98,12 @@ body  {
 /*	border-bottom: 2px solid #262626;*/
 	height: 100%;
 	width: 400px;
+	color: #AAAAAA;
 }
 
-.main-content ul {
-	list-style: none;
-	color: #11bee6;
-	font-size: 12px;
+.main-content .stock-content-nav {
+	padding: 5px;
+	font-size: 10px;
 }
 
 .main-content ul li {
