@@ -17,6 +17,7 @@ body  {
 	width: 90%;
 	margin: 0 auto;
 	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
 	overflow: hidden;
 }
 
@@ -43,8 +44,8 @@ body  {
 
 .links {
 	margin-left: auto;
-	font-size: 0.7rem;
-	margin-top: 0.3rem;
+	font-size: 0.9rem;
+	margin-top: 0.1rem;
 	color: #808393;
 }
 
