@@ -34,18 +34,19 @@ body  {
 .random-triangle {
 	width: 0;
 	height: 0;
-	border-top: 0.8em solid rgb(22, 136, 84);
-	border-right: 0.8em solid transparent;
+	border-top: 0.7em solid #4D99BF;
+	border-right: 0.7em solid transparent;
 }
 
 .iex-view-text {
-	color: rgb(22, 136, 84);
+/*	color: rgb(22, 136, 84);*/
+	color: #4D99BF;
 }
 
 .links {
 	margin-left: auto;
-	font-size: 0.9rem;
-	margin-top: 0.1rem;
+	font-size: 0.8rem;
+	margin-top: 0.2rem;
 	color: #808393;
 }
 
@@ -85,10 +86,10 @@ body  {
 }
 
 .side-bar ul li:hover {
-	/*color: rgb(22, 136, 84);*/
+	color: #4D99BF;
 	cursor: pointer;
 	background-color: #262626;
-	border-left: 4px solid rgb(22, 136, 84);
+	border-left: 4px solid #4D99BF;
 }
 
 
