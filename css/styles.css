@@ -28,7 +28,7 @@ body  {
 	height: 2rem;
 	padding: .50rem;
 	padding-right: none;
-	border-bottom: 2px solid rgba(32,32,32,0.1);
+	border-bottom: 2px solid rgba(43,43,43,0.7);
 	font-size: 1rem;
 	display: flex;
 }
@@ -71,7 +71,7 @@ body  {
 .side-bar {
 	flex: 0 0 7rem;
 	align-items: stretch;
-	border-right: 2px solid rgba(32,32,32,0.4);
+	border-right: 2px solid rgba(43,43,43,0.7);
 }
 
 .side-bar ul {
@@ -88,7 +88,7 @@ body  {
 .side-bar ul li:hover {
 	color: #4D99BF;
 	cursor: pointer;
-	background-color: #262626;
+	background-color: rgba(43,43,43,0.7);
 	border-left: 4px solid #4D99BF;
 }
 
@@ -111,7 +111,7 @@ input {
 	height: 1.5rem;
 	width: 40%;
 	background-color: #222222;
-	border-right: 2px solid rgba(32,32,32,0.4);
+	border-right: 2px solid rgba(43,43,43,0.7);
 }
 
 .search-input {
@@ -134,5 +134,5 @@ input {
 
 .detailed-info {
 	height: 100%;
-	border-top: 2px solid rgba(32,32,32,0.4);
+	border-top: 2px solid rgba(43,43,43,0.7);
 }
