@@ -80,6 +80,7 @@ body  {
 
 .side-bar ul li {
 	color: #ECECEC;
+	height: 1.5rem;
 	padding: 0.2rem;
 	padding-left: 0.3rem;
 	font-size: 0.8em;
