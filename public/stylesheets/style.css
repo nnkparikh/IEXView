@@ -22,10 +22,14 @@ body  {
 	overflow: hidden;
 }
 
+a {
+	text-decoration: none;
+}
+
 [class^=page--stocks] .nav-stocks,
 [class^=page--home] .nav-home {
 	color: #4D99BF;
-	background-color: rgba(43,43,43,0.7);
+	background-color: rgba(40, 40, 40, 0.7);
 	border-left: 4px solid #4D99BF;
 }
 
@@ -81,11 +85,8 @@ body  {
 	border-right: 2px solid rgba(43,43,43,0.7);
 }
 
-.side-bar ul {
-	list-style: none;
-}
-
-.side-bar ul li {
+.side-bar a {
+	display: block;
 	color: #ECECEC;
 	height: 1.5rem;
 	padding: 0.2rem;
@@ -93,7 +94,7 @@ body  {
 	font-size: 0.8em;
 }
 
-.side-bar ul li:hover {
+.side-bar a:hover {
 	color: #4D99BF;
 	cursor: pointer;
 	background-color: rgba(43,43,43,0.7);
@@ -116,11 +117,8 @@ input {
 .search-bar {
 	display: flex;
 	width: 40%;
-	background-color: #222222;
+	background-color: #2a2a2a;
 	border-right: 2px solid rgba(43,43,43,0.7);
-}
-
-.active-stocks {
 }
 
 .search-input {
