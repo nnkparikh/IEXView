@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="page--stocks" lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>IEXView</title>
+	<link rel="stylesheet" href="/stylesheets/style.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Nunito|Lato:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="/js/iex.js"></script>	
+	<script src="/js/iex-shell.js"></script>
+	<script>
+		document.onreadystatechange = function(){
+			if (document.readyState === "complete"){
+				iex.initModule(document.getElementById('iex'));
+			}
+		}
+	</script>
+</head>
+<body id="iex">
+</body>
+</html>
