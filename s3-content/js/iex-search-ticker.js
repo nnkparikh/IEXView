@@ -1,5 +1,6 @@
 iex.search_ticker = (function(){
     var configMap = {
+        symbolsUrl: "https://api.iextrading.com/1.0/ref-data/symbols",
         main_html: String()
              + '<div class="main-tool-bar">'
                  + '<div class="search-bar">'
@@ -17,7 +18,7 @@ iex.search_ticker = (function(){
         symbols: null
     }, 
     elementMap = {}, 
-    setElementMap, 
+    setElementMap,  getSymbols,
     initModule;
 
     // Event handlers
@@ -26,6 +27,11 @@ iex.search_ticker = (function(){
     };
 
     // DOM methods
+    getSymbols = function(symbolsUrl){
+        console.log("getting symbols from: " + symbolsUrl);
+        return "list of symbols..";
+    };
+
     setElementMap = function(){
         var container = stateMap.container;
         elementMap = {
@@ -37,9 +43,9 @@ iex.search_ticker = (function(){
     // Public methods
     initModule = function(container){
         stateMap.container = container;
+        stateMap.symbols = getSymbols(configMap.symbolsUrl);
         container.innerHTML = configMap.main_html;
         setElementMap();
-        symbols = iex.util.symbols; // does this still work with async call to fetch symbols?
         var search_input = elementMap.search_input;
         search_input.addEventListener("input", onTickerSearchEvent);
     };

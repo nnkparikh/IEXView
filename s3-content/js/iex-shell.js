@@ -19,10 +19,11 @@ iex.shell = (function(){
           + '</div>'
     },
     stateMap = {
-        container: null
+        container: null,
+        symbols: null
     }, 
     elementMap = {}, 
-    setElementMap, 
+    setElementMap,
     initModule;
 
     // DOM methods
