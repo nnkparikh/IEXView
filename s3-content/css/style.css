@@ -26,6 +26,10 @@ a {
     text-decoration: none;
 }
 
+div:empty {
+    display: none;
+}
+
 [class^=page--stocks] .nav-stocks,
 [class^=page--home] .nav-home {
     color: #4D99BF;
@@ -118,10 +122,9 @@ input {
     display: flex;
     width: 40%;
     background-color: #2a2a2a;
-    border-right: 2px solid rgba(43,43,43,0.7);
 }
 
-.search {
+.search-container {
     width: 100%;
 }
 
@@ -129,6 +132,14 @@ input {
     padding: 0.2rem;
     font-size: 0.8rem;
     width: 100%;
+}
+
+.search-results {
+    padding: 0.2rem;
+    background-color: #232323;
+    font-size: 0.8rem;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.05);
 }
 
 .main-tool-bar {

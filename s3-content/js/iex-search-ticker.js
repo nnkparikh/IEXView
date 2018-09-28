@@ -5,10 +5,10 @@ iex.search_ticker = (function(){
              + '<div class="main-tool-bar">'
                  + '<div class="search-bar">'
                      + '<i class="material-icons md-24">search</i>'
-                     + '<div class="search">'
+                     + '<div class="search-container">'
                         + '<input type="text" class="search-input" placeholder="Search by ticker symbol or company." \
                             pattern="[a-zA-Z0-9]+"/>'
-                        + '<div style="overflow-y: scroll; height:400px;" class="search-results">'
+                        + '<div style="overflow-y: scroll; max-height:400px;" class="search-results">'
                         + '</div>'
                      + '</div>'
                  + '</div>'
@@ -41,7 +41,7 @@ iex.search_ticker = (function(){
             if (name_match || ticker_match){
                 var search_results = elementMap.search_results;
                 result_div = document.createElement("div");
-                result_div.innerHTML = name;
+                result_div.innerHTML = "<b>" + ticker + " - " + name + "</b>";
                 search_results.append(result_div);
             }
         }
