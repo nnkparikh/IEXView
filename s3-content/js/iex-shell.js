@@ -11,13 +11,6 @@ iex.shell = (function(){
              + '</div>'
           + '</div>'
           + '<div class="content-wrapper">'
-             + '<div class="side-bar">'
-                 + '<a class="nav-stocks" href="/">Stocks</a>'
-                 + '<a class="nav-markets" href="/">Markets</a>'
-                 + '<a class="nav-foreign" href="/">News</a>'
-                 + '<a class="nav-trends" href="/">Trends</a>'
-                 + '<a class="nav-trends" href="/">Links</a>'
-             + '</div>'
              + '<div class="main-content">'
              + '</div>'
           + '</div>'
@@ -35,7 +28,7 @@ iex.shell = (function(){
         var container = stateMap.container;
         elementMap = {
             container: container,
-            search_ticker: container.querySelector('.main-content')
+            main_content: container.querySelector('.main-content')
         };
     };
 
@@ -44,7 +37,7 @@ iex.shell = (function(){
         stateMap.container = container;
         container.innerHTML = configMap.main_html;
         setElementMap();
-        iex.search_ticker.initModule(elementMap.search_ticker);
+        iex.search_ticker.initModule(elementMap.main_content);
     };
 
     return {initModule: initModule};

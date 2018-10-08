@@ -157,10 +157,15 @@ input {
 
 .main-content {
     height: 100%;
-    flex: 0 0 calc(100% - 7rem);
+    flex: 0 0 calc(100%);
     color: #BABABA;
 }
 
-.detailed-info {
+.company-details {
     height: 100%;
+}
+
+.account {
+    margin-left: auto;
+    margin-right: 0.5em;
 }

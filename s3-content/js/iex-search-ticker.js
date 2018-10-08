@@ -12,9 +12,11 @@ iex.search_ticker = (function(){
                         + '</div>'
                      + '</div>'
                  + '</div>'
-                 + '<div class="active-stocks"></div>'
+                 + '<div class="account">'
+                 +      '<i class="material-icons md-24">account_circle</i>'
+                 + '</div>'
              + '</div>'
-             + '<div class="detailed-info">'
+             + '<div class="company-details">'
              + '</div>'
     },
     stateMap = {
@@ -84,7 +86,8 @@ iex.search_ticker = (function(){
         elementMap = {
             container: container,
             search_input: container.querySelector('.search-input'),
-            search_results: container.querySelector('.search-results')
+            search_results: container.querySelector('.search-results'),
+            company_details: container.querySelector('.company-details')
         };
     };
 
@@ -96,6 +99,7 @@ iex.search_ticker = (function(){
         getSymbols(configMap.symbolsUrl);
         var search_input = elementMap.search_input;
         search_input.addEventListener("input", onTickerSearchEvent);
+        iex.company_details.initModule(container.company_details);
     };
 
     return {initModule: initModule};
