@@ -76,6 +76,11 @@ div:empty {
 .links a:hover {
     color: #4D99BF;
 }
+.search-result-item:hover {
+    color: #4D99BF;
+    cursor: pointer;
+    background-color: rgba(43,43,43,0.7);
+}
 
 .content-wrapper {
     display: flex;
@@ -135,7 +140,6 @@ input {
 }
 
 .search-results {
-    padding: 0.2rem;
     background-color: #232323;
     font-size: 0.8rem;
     width: 100%;

@@ -22,10 +22,15 @@ iex.search_ticker = (function(){
         symbols: []
     }, 
     elementMap = {}, 
-    setElementMap,  getSymbols, onTickerSearchEvent,
+    setElementMap,  getSymbols, 
+    onTickerSearchEvent, onTickerSearchResultClick,
     initModule;
 
     // Event handlers
+    onTickerSearchResultClick = function(event){
+        alert(this.getAttribute("name") + " clicked.");
+    };
+
     onTickerSearchEvent = function(event){
         var result_div;
         search_term = this.value;
@@ -38,10 +43,13 @@ iex.search_ticker = (function(){
             var name_substr = name.substr(0, search_term.length);
             var name_match = (name_substr.toLowerCase() == search_term.toLowerCase());
             var ticker_match = (ticker_substr.toLowerCase() == search_term.toLowerCase());
-            if (name_match || ticker_match){
+            if ((name_match || ticker_match) && name.length <= 50){
                 var search_results = elementMap.search_results;
                 result_div = document.createElement("div");
+                result_div.classList.add("search-result-item");
+                result_div.setAttribute("name",ticker);
                 result_div.innerHTML = "<b>" + ticker + " - " + name + "</b>";
+                result_div.addEventListener("click", onTickerSearchResultClick);
                 search_results.append(result_div);
             }
         }
