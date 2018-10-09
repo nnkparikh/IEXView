@@ -2,9 +2,11 @@ iex.company_details = (function(){
 	var configMap = {
 		apiURL: "https://api.iextrading.com/1.0/",
         main_html: String()
-        		+ '<div class="company-header"></div>'
-        		+ '<div class="company-price"></div>'
-        		+ '<div class="company-description"></div>'
+    			+ '<div class="company-intro">'
+        		+ 	'<div class="company-header"></div>'
+        		+ 	'<div class="company-price"></div>'
+        		+ 	'<div class="company-description"></div>'
+        		+ '</div>'
     },
     stateMap = {
         container: null,
@@ -53,8 +55,8 @@ iex.company_details = (function(){
     	})
     	.then(function(e){
     		stateMap.company_details = e;
-    		elementMap.company_header.innerHTML = `<b>${e.companyName}</b>`;
-    		elementMap.company_description.innerHTML = `${e.description}`;
+    		elementMap.company_header.innerHTML = `<h1>${e.companyName}</h1>`;
+    		elementMap.company_description.innerHTML = `<h4>Description</h4>${e.description}`;
     	});
     	displayCompanyPrice(ticker);
     };
