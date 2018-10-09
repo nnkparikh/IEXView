@@ -99,6 +99,9 @@ iex.search_ticker = (function(){
         getSymbols(configMap.symbolsUrl);
         var search_input = elementMap.search_input;
         search_input.addEventListener("input", onTickerSearchEvent);
+        document.addEventListener("click", function (e) {
+            removeSearchResults(elementMap.search_results);
+        });
         iex.company_details.initModule(elementMap.company_details);
     };
 
