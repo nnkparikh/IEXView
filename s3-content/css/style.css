@@ -162,6 +162,7 @@ input {
 }
 
 .company-details {
+    padding: .50rem;
     height: 100%;
 }
 

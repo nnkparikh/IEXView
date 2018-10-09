@@ -22,7 +22,7 @@ iex.search_ticker = (function(){
     stateMap = {
         container: null,
         symbols: []
-    }, 
+    },
     elementMap = {}, 
     setElementMap,  getSymbols, 
     onTickerSearchEvent, onTickerSearchResultClick,
@@ -30,7 +30,8 @@ iex.search_ticker = (function(){
 
     // Event handlers
     onTickerSearchResultClick = function(event){
-        alert(this.getAttribute("name") + " clicked.");
+        var ticker = this.getAttribute("ticker");
+        iex.company_details.displayCompanyDetails(ticker);
     };
 
     onTickerSearchEvent = function(event){
@@ -49,7 +50,7 @@ iex.search_ticker = (function(){
                 var search_results = elementMap.search_results;
                 result_div = document.createElement("div");
                 result_div.classList.add("search-result-item");
-                result_div.setAttribute("name",ticker);
+                result_div.setAttribute("ticker",ticker);
                 result_div.innerHTML = "<b>" + ticker + " - " + name + "</b>";
                 result_div.addEventListener("click", onTickerSearchResultClick);
                 search_results.append(result_div);
@@ -65,7 +66,6 @@ iex.search_ticker = (function(){
     }
 
     getSymbols = function(symbolsUrl){
-        console.log("getting symbols from: " + symbolsUrl);
         fetch(symbolsUrl)
         .then(function(e){
             return e.json();
@@ -99,7 +99,7 @@ iex.search_ticker = (function(){
         getSymbols(configMap.symbolsUrl);
         var search_input = elementMap.search_input;
         search_input.addEventListener("input", onTickerSearchEvent);
-        iex.company_details.initModule(container.company_details);
+        iex.company_details.initModule(elementMap.company_details);
     };
 
     return {initModule: initModule};
