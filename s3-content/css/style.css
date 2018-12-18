@@ -175,7 +175,7 @@ input {
     padding: .50rem;
     padding-top: 5rem;
     height: 100%;
-    background: #282828b3;
+    background: #222;
 }
 
 .account {
@@ -191,5 +191,5 @@ input {
 .company-intro {
     padding: 0.5rem;
     height: 100%;
-    background-color: #222;
+    background-color: #202020;
 }
