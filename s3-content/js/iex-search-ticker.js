@@ -39,6 +39,7 @@ iex.search_ticker = (function(){
         search_term = this.value;
         symbols = stateMap.symbols;
         removeSearchResults(elementMap.search_results);
+        if (search_term == "") return;
         for (var i = 0; i < symbols.length; i++){
             var ticker = symbols[i].ticker;
             var name = symbols[i].name;
