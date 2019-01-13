@@ -1,6 +1,8 @@
 iex.search_ticker = (function(){
     var configMap = {
-        symbolsUrl: "https://api.iextrading.com/1.0/ref-data/symbols",
+        apiURL: iex.apiURL,
+        symbolsUrl: iex.apiURL + "/ref-data/symbols",
+        tickersearch_event: new CustomEvent('tickersearch'),
         main_html: String()
              + '<div class="main-tool-bar">'
                  + '<div class="search-bar">'
@@ -28,10 +30,16 @@ iex.search_ticker = (function(){
     onTickerSearchEvent, onTickerSearchResultClick,
     initModule;
 
+    configMap.tickersearch_event.data = {
+        ticker: ""
+    }
+
     // Event handlers
     onTickerSearchResultClick = function(event){
         var ticker = this.getAttribute("ticker");
-        iex.company_details.displayCompanyDetails(ticker);
+        var ticker_e = configMap.tickersearch_event;
+        ticker_e.data.ticker = ticker;
+        document.dispatchEvent(ticker_e);
     };
 
     onTickerSearchEvent = function(event){
