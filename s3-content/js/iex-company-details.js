@@ -23,8 +23,8 @@ iex.company_details = (function(){
     // Event Listener
     displayCompanyDetails = function(e){
         var ticker = e.data.ticker;
-        displayCompanyBaseDetails(ticker);
-        displayCompanyPrice(ticker);
+        iex.model.getCompanyBaseDetails(ticker, displayCompanyBaseDetails);
+        iex.model.getCompanyPrice(ticker, displayCompanyPrice);
     };
 
     // DOM methods
@@ -42,25 +42,19 @@ iex.company_details = (function(){
         };
     };
 
-    displayCompanyBaseDetails = function(ticker){
-        var cbd_promise = iex.model.getCompanyBaseDetails(ticker);
-        cbd_promise.then(function(e){
-            stateMap.company_details = e;
-            elementMap.company_header.innerHTML = `<h1>${e.companyName}</h1>`;
-            elementMap.company_description.innerHTML = `<h4>Description</h4>${e.description}`;
-            elementMap.company_ceo.innerHTML = `<h4>CEO</h4>${e.CEO}`;
-            elementMap.company_website.innerHTML = `<h4>Website</h4>${e.website}`;
-            elementMap.company_industry.innerHTML = `<h4>Industry</h4>${e.industry}`;
-            elementMap.company_exchange.innerHTML = `<h4>Exchange</h4>${e.exchange}`;
-        });
+    displayCompanyBaseDetails = function(e){       
+        stateMap.company_details = e;
+        elementMap.company_header.innerHTML = `<h1>${e.companyName}</h1>`;
+        elementMap.company_description.innerHTML = `<h4>Description</h4>${e.description}`;
+        elementMap.company_ceo.innerHTML = `<h4>CEO</h4>${e.CEO}`;
+        elementMap.company_website.innerHTML = `<h4>Website</h4>${e.website}`;
+        elementMap.company_industry.innerHTML = `<h4>Industry</h4>${e.industry}`;
+        elementMap.company_exchange.innerHTML = `<h4>Exchange</h4>${e.exchange}`;
     }
 
-    displayCompanyPrice = function(ticker){
-        var cp_promise = iex.model.getCompanyPrice(ticker);
-        cp_promise.then(function(e){
-            stateMap.company_price = e;
-            elementMap.company_price.innerHTML = `${e}`;
-        });
+    displayCompanyPrice = function(e){
+        stateMap.company_price = e;
+        elementMap.company_price.innerHTML = `${e}`;
     }
 
     // Public methods

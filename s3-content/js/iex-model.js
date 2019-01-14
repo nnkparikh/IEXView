@@ -35,18 +35,26 @@ iex.model = (function(){
         return stateMap.symbols;
     };
 
-    getCompanyBaseDetails = async function(ticker){
+    getCompanyBaseDetails = function(ticker, callback){
         var companyURL = configMap.apiUrl + `stock/${ticker}/company`;
-        const response = await fetch(companyURL);
-        const json = await response.json();
-        return json;
+        fetch(companyURL)
+        .then(function(e){
+            return e.json();
+        })
+        .then(function(e){
+            callback(e);
+        });
     };
 
-    getCompanyPrice = async function(ticker){
+    getCompanyPrice = function(ticker, callback){
         var priceURL = configMap.apiUrl + `stock/${ticker}/price`;
-        const response = await fetch(priceURL);
-        const json = await response.json();
-        return json;
+        fetch(priceURL)
+        .then(function(e){
+            return e.json();
+        })
+        .then(function(e){
+            callback(e);
+        });
     };
 
     initModule = function(){
