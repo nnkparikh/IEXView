@@ -1,7 +1,6 @@
 iex.search_ticker = (function(){
+    'using strict';
     var configMap = {
-        apiURL: iex.apiURL,
-        symbolsUrl: iex.apiURL + "/ref-data/symbols",
         tickersearch_event: new CustomEvent('tickersearch'),
         main_html: String()
              + '<div class="main-tool-bar">'
@@ -33,7 +32,7 @@ iex.search_ticker = (function(){
     configMap.tickersearch_event.data = {
         ticker: ""
     }
-
+    
     // Event handlers
     onTickerSearchResultClick = function(event){
         var ticker = this.getAttribute("ticker");
@@ -74,22 +73,6 @@ iex.search_ticker = (function(){
         }
     }
 
-    getSymbols = function(symbolsUrl){
-        fetch(symbolsUrl)
-        .then(function(e){
-            return e.json();
-        })
-        .then(function(e){
-            e.forEach(function(e){
-                var item = {
-                    ticker: e.symbol, 
-                    name: e.name
-                };
-                stateMap.symbols.push(item);
-            });
-        });
-    };
-
     setElementMap = function(){
         var container = stateMap.container;
         elementMap = {
@@ -105,7 +88,7 @@ iex.search_ticker = (function(){
         stateMap.container = container;
         container.innerHTML = configMap.main_html;
         setElementMap();
-        getSymbols(configMap.symbolsUrl);
+        stateMap.symbols = iex.model.getTickerSymbols();
         var search_input = elementMap.search_input;
         search_input.addEventListener("input", onTickerSearchEvent);
         document.addEventListener("click", function (e) {

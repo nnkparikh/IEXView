@@ -1,11 +1,15 @@
 iex.company_details = (function(){
+    'using strict';
     var configMap = {
-        apiURL: iex.apiURL,
         main_html: String()
                 + '<div class="company-intro">'
                 +   '<div class="company-header"></div>'
                 +   '<div class="company-price"></div>'
                 +   '<div class="company-description"></div>'
+                +   '<div class="company-ceo"></div>'
+                +   '<div class="company-website"></div>'
+                +   '<div class="company-industry"></div>'
+                +   '<div class="company-exchange"></div>'
                 + '</div>'
     },
     stateMap = {
@@ -23,7 +27,6 @@ iex.company_details = (function(){
         displayCompanyPrice(ticker);
     };
 
-
     // DOM methods
     setElementMap = function(){
         var container = stateMap.container;
@@ -31,30 +34,30 @@ iex.company_details = (function(){
             container: container,
             company_header: container.querySelector('.company-header'),
             company_description: container.querySelector('.company-description'),
-            company_price: container.querySelector('.company-price')
+            company_price: container.querySelector('.company-price'),
+            company_ceo: container.querySelector('.company-ceo'),
+            company_website: container.querySelector('.company-website'),
+            company_industry: container.querySelector('.company-industry'),
+            company_exchange: container.querySelector('.company-exchange'),
         };
     };
 
     displayCompanyBaseDetails = function(ticker){
-        var companyURL = configMap.apiURL + `stock/${ticker}/company`;
-        fetch(companyURL)
-        .then(function(e){
-            return e.json();
-        })
-        .then(function(e){
+        var cbd_promise = iex.model.getCompanyBaseDetails(ticker);
+        cbd_promise.then(function(e){
             stateMap.company_details = e;
             elementMap.company_header.innerHTML = `<h1>${e.companyName}</h1>`;
             elementMap.company_description.innerHTML = `<h4>Description</h4>${e.description}`;
+            elementMap.company_ceo.innerHTML = `<h4>CEO</h4>${e.CEO}`;
+            elementMap.company_website.innerHTML = `<h4>Website</h4>${e.website}`;
+            elementMap.company_industry.innerHTML = `<h4>Industry</h4>${e.industry}`;
+            elementMap.company_exchange.innerHTML = `<h4>Exchange</h4>${e.exchange}`;
         });
     }
 
     displayCompanyPrice = function(ticker){
-        var priceURL = configMap.apiURL + `stock/${ticker}/price`;
-        fetch(priceURL)
-        .then(function(e){
-            return e.json();
-        })
-        .then(function(e){
+        var cp_promise = iex.model.getCompanyPrice(ticker);
+        cp_promise.then(function(e){
             stateMap.company_price = e;
             elementMap.company_price.innerHTML = `${e}`;
         });

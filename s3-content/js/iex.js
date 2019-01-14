@@ -1,10 +1,10 @@
 var iex = (function(){
-    var apiURL = "https://api.iextrading.com/1.0/";
+    'using strict';
     var initModule = function (container) {
         iex.shell.initModule(container);
+        iex.model.initModule();
     };
     return {
-        initModule: initModule,
-        apiURL: apiURL
+        initModule: initModule
     };
 }());
