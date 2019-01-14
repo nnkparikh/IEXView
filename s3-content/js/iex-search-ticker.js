@@ -3,21 +3,17 @@ iex.search_ticker = (function(){
     var configMap = {
         tickersearch_event: new CustomEvent('tickersearch'),
         main_html: String()
-             + '<div class="main-tool-bar">'
-                 + '<div class="search-bar">'
-                     + '<i class="material-icons md-24">search</i>'
-                     + '<div class="search-container">'
-                        + '<input type="text" class="search-input" placeholder="Search by ticker symbol or company." \
-                            pattern="[a-zA-Z0-9]+"/>'
-                        + '<div class="search-results">'
-                        + '</div>'
-                     + '</div>'
-                 + '</div>'
-                 + '<div class="account">'
-                 +      '<i class="material-icons md-24">account_circle</i>'
+            + '<div class="search-bar">'
+                 + '<i class="material-icons md-24">search</i>'
+                 + '<div class="search-container">'
+                    + '<input type="text" class="search-input" placeholder="Search by ticker symbol or company." \
+                        pattern="[a-zA-Z0-9]+"/>'
+                    + '<div class="search-results">'
+                    + '</div>'
                  + '</div>'
              + '</div>'
-             + '<div class="company-details">'
+             + '<div class="account">'
+             +      '<i class="material-icons md-24">account_circle</i>'
              + '</div>'
     },
     stateMap = {
@@ -94,7 +90,6 @@ iex.search_ticker = (function(){
         document.addEventListener("click", function (e) {
             removeSearchResults(elementMap.search_results);
         });
-        iex.company_details.initModule(elementMap.company_details);
     };
 
     return {initModule: initModule};

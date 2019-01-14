@@ -1,4 +1,5 @@
 iex.shell = (function(){
+    'using strict';
     var configMap = {
         main_html: String()
           + '<div class="top-bar">'
@@ -12,6 +13,10 @@ iex.shell = (function(){
           + '</div>'
           + '<div class="content-wrapper">'
              + '<div class="main-content">'
+                + '<div class="main-tool-bar">'
+                + '</div>'
+                + '<div class="company-details">'
+                + '</div>'
              + '</div>'
           + '</div>'
     },
@@ -28,7 +33,9 @@ iex.shell = (function(){
         var container = stateMap.container;
         elementMap = {
             container: container,
-            main_content: container.querySelector('.main-content')
+            main_content: container.querySelector('.main-content'),
+            main_toolbar: container.querySelector('.main-tool-bar'),
+            company_details: container.querySelector('.company-details'),
         };
     };
 
@@ -37,7 +44,8 @@ iex.shell = (function(){
         stateMap.container = container;
         container.innerHTML = configMap.main_html;
         setElementMap();
-        iex.search_ticker.initModule(elementMap.main_content);
+        iex.search_ticker.initModule(elementMap.main_toolbar);
+        iex.company_details.initModule(elementMap.company_details);
     };
 
     return {initModule: initModule};
